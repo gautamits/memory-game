@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import useTimer from './useTimer' 
 import db from './db.json'
@@ -35,7 +36,7 @@ export default function Game() {
 
   const isCompleted = React.useMemo(() => {
     return Object.keys(solved).length === gameSize * gameSize
-  }, [opened, gameSize])
+  }, [gameSize, solved])
 
   const handleCardClick = (e: any) => {
     if(!gameOn || showing) return
