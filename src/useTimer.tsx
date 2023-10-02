@@ -7,17 +7,13 @@ export default function useTimer() {
       setCounterOn((t) => !t);
     };
   
-    const seconds = useMemo(() => {
-      return Math.floor((counter / 10) % 60);
+    const [hours, minutes, seconds] = useMemo(() => {
+      return [
+        Math.floor((counter / 10) / 3600),
+        Math.floor((counter / 10) / 60),
+        Math.floor((counter / 10) % 60)
+      ]
     }, [counter]);
-    
-    const minutes = useMemo(() => {
-        return Math.floor(seconds / 60)
-    }, [seconds])
-
-    const hours = useMemo(() => {
-      return Math.floor(minutes / 60);
-    }, [minutes]);
   
     const handleReset = (e?: any) => {
       setCounterOn(false);
