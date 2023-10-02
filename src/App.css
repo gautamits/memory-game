@@ -31,7 +31,8 @@
 }
 
 .fc-white {
-  color: white;
+  font-size: 24px;
+  filter: drop-shadow(2px 2px 0px green)
 }
 
 .flex {
