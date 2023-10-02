@@ -61,6 +61,7 @@ export default function Game() {
     500
   );
 
+  const solvedPercent = Object.keys(solved).length * 100 / randomImages.length
   React.useEffect(() => {
     if(gameOn) {
         setSolved({})
@@ -83,7 +84,7 @@ export default function Game() {
   }, [isCompleted])
 
   return (
-    <div className='game-container' >
+    <div className='game-container' style={{'--solved-percent': solvedPercent+'%', '--unsolved-percent': (100 - solvedPercent)+'%'} as React.CSSProperties}>
       {isCompleted && <div>
         <div className='fs-32 fc-red fw-7 mb-20'>CONGRATS!</div>
         <div className='fc-white mb-20'>You completed game in {hours} hours {minutes} minutes and {seconds} seconds using {clicks} clicks</div>
