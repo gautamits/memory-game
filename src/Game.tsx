@@ -3,10 +3,6 @@ import React from 'react'
 import useTimer from './useTimer' 
 import db from './db.json'
 
-const question_mark =
-  "https://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Arrows-PNG/Question_Mark_Red_PNG_Transparent_Clipart.png?m=1652673278"
-
-
 
 function useDelayedEffect(effect: Function, changingStateVars: any[] = [], delay = 500) {
   const mutable = React.useRef<any>();
@@ -116,7 +112,7 @@ export default function Game() {
               onClick={handleCardClick}
             >
               <div
-                style={{ backgroundImage: `url('${question_mark}')` }}
+                style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/question_mark.png)` }}
                 className="front"
               ></div>
               <div
